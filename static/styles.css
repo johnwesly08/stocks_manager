@@ -1,0 +1,94 @@
+/***************** base.html ************************/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://media.istockphoto.com/id/844226534/photo/leaf-background.jpg?b=1&s=612x612&w=0&k=20&c=kECabGLk1Wkbuq7VS4LmikUzAwOo96ztub90zOIBha8=);
+    opacity: 0.5px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+/************************ company login page *************************** */
+.company_login {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin: 40px auto;
+    padding: 30px;
+    backdrop-filter: blur(15px);
+    color: #fcfcfc;
+    font-family: sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 10px;
+}
+
+.company_login input {
+    opacity: 0.9;
+    width: 100%;
+    margin: 25px 90px 20px 0px;
+    padding: 10px 70px;
+    border: none;
+}
+
+
+
+/* Company registration page*/
+
+.company_register {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin: 0px auto;
+    padding: 30px;
+    backdrop-filter: blur(15px);
+    color: #fcfcfc;
+    font-family: sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 10px;
+}
+.company_register h2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px 20px 0px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 30px;
+}
+
+.company_register input {
+    opacity: 0.9;
+    width: 100%;
+    margin: 0px 170px 30px 0px;
+    padding: 20px 70px 0px 0px;
+    border: none;
+    text-align: left;
+}
+.company_register #regis{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 10%;
+    margin: 0px auto;
+    padding: 15px 50px 15px 50px;
+}

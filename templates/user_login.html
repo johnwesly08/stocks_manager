@@ -7,8 +7,9 @@
     <title>User | Login</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="{{url_for('user')}}" method="POST">
     <label for="company_id">Company ID: </label>
+        <h2>User-Login</h2>
         <input type="text" name="company_id" id="cid">
         <label for="password">Password: </label>
         <input type="password" name="user_password" id="u_pwd">

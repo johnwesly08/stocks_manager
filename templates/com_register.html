@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <title>Company-Registration Page</title>
 </head>
+
 <body>
-    <form action="" method="POST">
-        <div class="container">
-            <label for="company_name">Company Name: </label>
-            <input type="text" name="company_name" id="cname">
-            <label for="company_id">Company ID: </label>
-            <input type="text" name="company_id" id="cid">
-            <label for="director">Director: </label>
-            <input type="text" name="director" id="dir">
-            <label for="password">Set Password: </label>
-            <input type="password" name="set_password" id="set_pwd">
-            <label for="business_mail">Business Email: </label>
-            <input type="email" name="business_email" id="bus_mail">
-            <label for="state">State</label>
-            <input type="text" name="state" id="stt">
-            <label for="country">Country: </label>
-            <input type="text" name="countyr" id="cntry">
-            <label for="co_num">Contact Number: </label>
-            <input type="text" name="co_num" id="cnum">
-            <input type="button" value="Get OTP" onclick="otpFunc()">
-            <input type="text" name="otpcheck" id="otp">
+
+    <form action="{{url_for('register')}}" methods="POST">
+        <div class="company_register">
+            <h2>Sign Up</h2>
+            <input type="text" name="company_name" id="cname" placeholder="Company Name">
+            <input type="text" name="company_id" id="cid" placeholder="Company ID">
+            <input type="text" name="director" id="dir" placeholder="Director:">
+            <input type="password" name="set_password" id="set_pwd" placeholder="Set Password">
+            <input type="email" name="business_email" id="bus_mail" placeholder="Business Email">
+            <input type="text" name="state" id="stt" placeholder="State">
+            <input type="text" name="countyr" id="cntry" placeholder="Country">
             <input type="submit" value="Register" id="regis">
         </div>
     </form>
 </body>
+
 </html>
