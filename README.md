@@ -1,7 +1,7 @@
 # Stock Management System
 
 ## Overview
-The **Stock Management System** is a web application built with Flask that allows users to efficiently manage inventory, track stock levels, and generate reports. It supports product addition, deletion, updating, and viewing, along with user authentication and role-based access control
+The **Stock Management System** is a web application built with Flask that allows users to efficiently manage inventory, track stock levels, and generate reports. It supports product addition, deletion, updating, and viewing, along with user authentication and role-based access control.
 
 ## Features
 - **User Authentication & Authorization** (Admin, Manager, Staff)
