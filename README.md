@@ -18,7 +18,7 @@ The **Stock Management System** is a web application built with Flask that allow
 
 ## Installation
 ### Prerequisites
-- Python 3.x installed
+- Python 3.10 installed
 - Virtual environment (optional but recommended)
 
 ### Steps to Setup
