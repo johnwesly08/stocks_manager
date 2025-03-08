@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, url_for, flash
 from flask_mysqldb import MySQL
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Load environment variables
 load_dotenv()
@@ -31,13 +32,11 @@ def login():
     c_mail = request.form['business_email']
     c_pass = request.form['c_password']
     
-    # Perform login logic here (query database to check credentials)
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM companies WHERE Company_ID = %s AND Business_Email = %s AND Company_Password = %s", (c_id, c_mail, c_pass))
-    user = cur.fetchone()
-    cur.close()
+    with mysql.connection.cursor() as cur:
+        cur.execute("SELECT Company_Password FROM companies WHERE Company_ID = %s AND Business_Email = %s", (c_id, c_mail))
+        user = cur.fetchone()
 
-    if user:
+    if user and check_password_hash(user[0], c_pass):
         return redirect(url_for('home'))  # Redirect to dashboard on success
     else:
         flash("Invalid credentials, please try again.")
@@ -49,18 +48,18 @@ def register():
         com_name = request.form['company_name']
         com_id = request.form['company_id']
         com_dir = request.form['director']
-        com_pass = request.form['set_password']
+        com_pass = generate_password_hash(request.form['set_password'])
         com_mail = request.form['business_email']
         com_country = request.form['country']
         com_state = request.form['state']
 
         try:
-            cur = mysql.connection.cursor()
-            cur.execute("INSERT INTO companies (Company_Name, Company_ID, Director, Company_Password, Business_Email, Country, State) VALUES (%s,%s,%s,%s,%s,%s,%s)",
-                        (com_name, com_id, com_dir, com_pass, com_mail, com_country, com_state))
-            mysql.connection.commit()
-            cur.close()
-            return redirect(url_for('login'))
+            with mysql.connection.cursor() as cur:
+                cur.execute("INSERT INTO companies (Company_Name, Company_ID, Director, Company_Password, Business_Email, Country, State) VALUES (%s,%s,%s,%s,%s,%s,%s)",
+                            (com_name, com_id, com_dir, com_pass, com_mail, com_country, com_state))
+                mysql.connection.commit()
+            flash("Registration successful. Please log in.")
+            return redirect(url_for('main'))
         except Exception as e:
             flash("An error occurred while registering the company: " + str(e))
             return redirect(url_for('register'))
